@@ -2,7 +2,7 @@ class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
         dic = dict()
         
-        for i in range(len(s)-9):
+        for i in range(len(s)):
             if s[i:i+10] not in dic:
                 dic[s[i:i+10]] = 1
             else:
