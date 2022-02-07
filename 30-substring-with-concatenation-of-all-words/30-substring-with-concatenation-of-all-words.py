@@ -22,6 +22,7 @@ class Solution:
         totalLen = len(words) * wordLen
         res = []
         for l in range(0,len(s)):
+            wordsDicCopy = wordsDic.copy()
             r = l+totalLen
             window = s[l:r]
             l2 = 0
@@ -36,7 +37,7 @@ class Solution:
             #print(wordsDic)
             if 0 >= max(wordsDic.values()):
                 res.append(l)
-            wordsDic = Counter(words)
+            wordsDic = wordsDicCopy
         return res
         '''
         e = set()
