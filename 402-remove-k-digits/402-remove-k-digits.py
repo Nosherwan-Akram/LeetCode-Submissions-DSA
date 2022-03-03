@@ -10,13 +10,16 @@ class Solution:
         [1,2,1,9]
         [1140]
         '''
-        if len(num) == k: return '0'
-        stack = []
-        for c in num:
-            while stack and stack[-1] > c and k != 0:
-                stack.pop()
-                k -= 1      
-            stack.append(c)
+        st = list()
+        for n in num:
+            while st and k and st[-1] > n:
+                st.pop()
+                k -= 1
             
-        if k: stack = stack[0:-k]
-        return str(int(''.join(stack)))
+            if st or n is not '0': # prevent leading zeros
+                st.append(n)
+                
+        if k: # not fully spent
+            st = st[0:-k]
+            
+        return ''.join(st) or '0'
