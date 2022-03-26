@@ -3,9 +3,8 @@ class Solution:
         seen = set()
         while n not in seen:
             seen.add(n)
-            digits = list(str(n))
             total = 0
-            for d in digits:
+            for d in str(n):
                 total = total + int(d)**2
             n = total
             if n == 1:
